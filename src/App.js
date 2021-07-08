@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(0)
+  const increment = ()=>setCount(count+1)
+  const multipleOfThree = ()=>setCount(previousCount=>{
+    return previousCount%3 === 0 ? previousCount/3 : previousCount
+  })
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>Count: {count}</div>
+    <button onClick={increment}>+1</button>
+    <button onClick={()=>setCount(previousCount=>previousCount-1)}>-1</button>
+    <button onClick={()=>setCount(previousCount=>previousCount*2)}>x2</button>
+    <div>
+    <button onClick={multipleOfThree}>3の倍数の時だけ3で割るボタン</button>
     </div>
+    <div>
+    <button onClick={()=>setCount(0)}>reset</button>
+    </div>
+    </>
   );
 }
 
