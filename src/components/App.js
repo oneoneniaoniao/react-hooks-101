@@ -8,7 +8,8 @@ import Events from "./Events"
 console.log({AppContext})
 function App() {          
   const initialState = { 
-    events: []
+    events: [], 
+    operationLogs: []
   }
   const [state, dispatch] = useReducer(reducer, initialState)
 
